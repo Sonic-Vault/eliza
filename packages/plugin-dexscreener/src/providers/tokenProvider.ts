@@ -124,8 +124,7 @@ export class TokenPriceProvider implements Provider {
         ).toLocaleString();
         const volume = (pair.volume?.h24 || 0).toLocaleString();
 
-        return `
-        The price of ${pair.baseToken.symbol} is $${price} USD, with liquidity of $${liquidity} and 24h volume of $${volume}.`;
+        return `The price of ${pair.baseToken.symbol} is $${price} USD, with liquidity of $${liquidity} and 24h volume of $${volume}.`;
     }
 }
 

@@ -15,13 +15,16 @@ export class TelegramClient {
 
     constructor(runtime: IAgentRuntime, botToken: string) {
         elizaLogger.log("📱 Constructing new TelegramClient...");
+        elizaLogger.log("📱 Constructing new TelegramClient... family 4 timeout 10000");
         this.options = {
             telegram: {
-                apiRoot: runtime.getSetting("TELEGRAM_API_ROOT") || process.env.TELEGRAM_API_ROOT || "https://api.telegram.org"
+                apiRoot: runtime.getSetting("TELEGRAM_API_ROOT") || process.env.TELEGRAM_API_ROOT || "https://api.telegram.org",
+                family: 4,
+                timeout: 10000
             },
         };
         this.runtime = runtime;
-        this.bot = new Telegraf(botToken,this.options);
+        this.bot = new Telegraf(botToken, this.options);
         this.messageManager = new MessageManager(this.bot, this.runtime);
         this.backend = runtime.getSetting("BACKEND_URL");
         this.backendToken = runtime.getSetting("BACKEND_TOKEN");
@@ -198,7 +201,7 @@ export class TelegramClient {
     public async stop(): Promise<void> {
         elizaLogger.log("Stopping Telegram bot...");
         //await 
-            this.bot.stop();
+        this.bot.stop();
         elizaLogger.log("Telegram bot stopped");
     }
 }

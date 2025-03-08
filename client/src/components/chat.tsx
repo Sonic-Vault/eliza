@@ -52,7 +52,7 @@ export default function Page({ agentId }: { agentId: UUID }) {
     const { scrollRef, isAtBottom, scrollToBottom, disableAutoScroll } = useAutoScroll({
         smooth: true,
     });
-   
+
     useEffect(() => {
         scrollToBottom();
     }, [queryClient.getQueryData(["messages", agentId])]);
@@ -75,12 +75,12 @@ export default function Page({ agentId }: { agentId: UUID }) {
 
         const attachments: IAttachment[] | undefined = selectedFile
             ? [
-                  {
-                      url: URL.createObjectURL(selectedFile),
-                      contentType: selectedFile.type,
-                      title: selectedFile.name,
-                  },
-              ]
+                {
+                    url: URL.createObjectURL(selectedFile),
+                    contentType: selectedFile.type,
+                    title: selectedFile.name,
+                },
+            ]
             : undefined;
 
         const newMessages = [
@@ -173,7 +173,7 @@ export default function Page({ agentId }: { agentId: UUID }) {
     return (
         <div className="flex flex-col w-full h-[calc(100dvh)] p-4">
             <div className="flex-1 overflow-y-auto">
-                <ChatMessageList 
+                <ChatMessageList
                     scrollRef={scrollRef}
                     isAtBottom={isAtBottom}
                     scrollToBottom={scrollToBottom}
@@ -197,7 +197,7 @@ export default function Page({ agentId }: { agentId: UUID }) {
                                 >
                                     {message?.user !== "user" ? (
                                         <Avatar className="size-8 p-1 border rounded-full select-none">
-                                            <AvatarImage src="/elizaos-icon.png" />
+                                            <AvatarImage src="/image.jpg" />
                                         </Avatar>
                                     ) : null}
                                     <div className="flex flex-col">
@@ -207,12 +207,14 @@ export default function Page({ agentId }: { agentId: UUID }) {
                                             {message?.user !== "user" ? (
                                                 <AIWriter>
                                                     {message?.text}
+
                                                 </AIWriter>
                                             ) : (
                                                 message?.text
                                             )}
                                             {/* Attachments */}
                                             <div>
+                                                {message?.user == "user" || !message?.url || message?.url == "" ? '' : (<a target="_blank" href={message?.url}>LINK</a>)}
                                                 {message?.attachments?.map(
                                                     (attachment: IAttachment) => (
                                                         <div
@@ -237,7 +239,7 @@ export default function Page({ agentId }: { agentId: UUID }) {
                                         </ChatBubbleMessage>
                                         <div className="flex items-center gap-4 justify-between w-full mt-1">
                                             {message?.text &&
-                                            !message?.isLoading ? (
+                                                !message?.isLoading ? (
                                                 <div className="flex items-center gap-1">
                                                     <CopyButton
                                                         text={message?.text}

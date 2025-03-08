@@ -1,7 +1,7 @@
 import type { UUID, Character } from "@elizaos/core";
 
 const BASE_URL = `http://localhost:${import.meta.env.VITE_SERVER_PORT}`;
-
+//const BASE_URL = `https://api.blocknaut.xyz`;
 const fetcher = async ({
     url,
     method,
@@ -18,9 +18,9 @@ const fetcher = async ({
         headers: headers
             ? headers
             : {
-                  Accept: "application/json",
-                  "Content-Type": "application/json",
-              },
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
     };
 
     if (method === "POST") {
@@ -58,7 +58,7 @@ const fetcher = async ({
 
             throw new Error(errorMessage);
         }
-            
+
         return resp.json();
     });
 };
