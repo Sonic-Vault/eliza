@@ -40,7 +40,7 @@ export const getLoginAction: Action = {
         callback: HandlerCallback
     ) => {
 
-        const endpoint = `${BASE_URL}/login/${message.userId}`;
+        const endpoint = `${DEFAULT_API_BASE_URL}/login/${message.userId}`;
 
         const response = await fetch(endpoint);
         if (!response.ok) {
