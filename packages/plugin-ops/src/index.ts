@@ -8,13 +8,14 @@ import { getQuoteAction } from "./actions/swap/quoteAction"
 import { ProjectProvider } from "./providers/projectProvider"
 import { ProfileProvider } from "./providers/profileProvider"
 import { SwapTokenProvider } from "./providers/swapTokenProvider"
+import { PredefinedProvider } from "./providers/predefinedProvider"
 
 export const OpsPlugin: Plugin = {
 	name: "Ops",
 	description: "Web3 ops",
 	actions: [getTransferAction, geBalanceAction, getLoginAction, getProjectAction, getSingleProjectAction, getQuoteAction],
 	evaluators: [],
-	providers: [new ProfileProvider(), new ProjectProvider(), new SwapTokenProvider()],
+	providers: [new ProfileProvider(), new ProjectProvider(), new SwapTokenProvider(), new PredefinedProvider()],
 }
 
 export default OpsPlugin
