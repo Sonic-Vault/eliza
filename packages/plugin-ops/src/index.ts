@@ -13,9 +13,9 @@ import { PredefinedProvider } from "./providers/predefinedProvider"
 export const OpsPlugin: Plugin = {
 	name: "Ops",
 	description: "Web3 ops",
-	actions: [getTransferAction, geBalanceAction, getLoginAction, getProjectAction, getSingleProjectAction, getQuoteAction],
+	actions: [getTransferAction, geBalanceAction, getLoginAction, getQuoteAction],
 	evaluators: [],
-	providers: [new ProfileProvider(), new ProjectProvider(), new SwapTokenProvider(), new PredefinedProvider()],
+	providers: [new ProfileProvider(), new SwapTokenProvider(), new PredefinedProvider()],
 }
 
 export default OpsPlugin
