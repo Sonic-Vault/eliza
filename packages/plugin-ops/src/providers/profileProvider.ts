@@ -1,7 +1,6 @@
 import type { Provider, IAgentRuntime, Memory, State } from "@elizaos/core";
 import type { Profile } from "../types";
-
-const BASE_URL = "http://127.0.0.1:7000";
+import { DEFAULT_API_BASE_URL } from "../constants";
 
 export class ProfileProvider implements Provider {
     async get(
@@ -10,7 +9,7 @@ export class ProfileProvider implements Provider {
         _state?: State
     ): Promise<string> {
         try {
-            const endpoint = `${BASE_URL}/profile/${message.userId}`;
+            const endpoint = `${DEFAULT_API_BASE_URL}/profile/${message.userId}`;
             const response = await fetch(endpoint);
             if (!response.ok) {
                 return `if you unsure about the name of the user, you must ask user to login first, and execute GET_PROFILE action`;
