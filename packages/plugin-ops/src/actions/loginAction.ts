@@ -6,9 +6,8 @@ import {
     type HandlerCallback,
     elizaLogger,
 } from "@elizaos/core";
+import { DEFAULT_API_BASE_URL } from "../constants";
 import type { Profile } from "../types";
-
-const BASE_URL = "http://127.0.0.1:7000";
 
 export const getLoginAction: Action = {
     name: "GET_PROFILE",
@@ -18,7 +17,7 @@ export const getLoginAction: Action = {
 
     validate: async (_runtime: IAgentRuntime, message: Memory) => {
 
-        const endpoint = `${BASE_URL}/profile/${message.userId}`;
+        const endpoint = `${DEFAULT_API_BASE_URL}/profile/${message.userId}`;
 
         const response = await fetch(endpoint);
         if (!response.ok) {

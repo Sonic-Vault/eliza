@@ -12,7 +12,7 @@ import {
 } from "@elizaos/core";
 import { Chains } from "../types";
 import { z } from "zod";
-import { VT_MEMORY } from "../constants";
+import { VT_MEMORY, DEFAULT_API_BASE_URL } from "../constants";
 import { getSingleProjectTemplate } from "../templates";
 
 export const RequestSingleProjectSchema = z.object({
@@ -81,7 +81,7 @@ export const getSingleProjectAction: Action = {
         elizaLogger.info("check:", content.object);
         const { chain, name } = content.object;
 
-        const endpoint = `http://127.0.0.1:7000/projects/${chain}/${name}`;
+        const endpoint = `${DEFAULT_API_BASE_URL}/projects/${chain}/${name}`;
 
         const response = await fetch(endpoint);
         if (!response.ok) {

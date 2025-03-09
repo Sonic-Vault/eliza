@@ -1,6 +1,6 @@
 import { Chains, type TokenMetadata } from "./types";
 
-export const DEFAULT_API_BASE_URL = "http://127.0.0.1:7000";
+export const DEFAULT_API_BASE_URL = "https://rust.sonicscout.tech";
 
 export const VT_MEMORY = {
     project: {

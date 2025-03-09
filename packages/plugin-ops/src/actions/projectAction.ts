@@ -11,7 +11,7 @@ import {
     MemoryManager,
 } from "@elizaos/core";
 import { Chains } from "../types";
-import { VT_MEMORY, PROJECT_CATEGORIES } from "../constants";
+import { VT_MEMORY, PROJECT_CATEGORIES, DEFAULT_API_BASE_URL } from "../constants";
 import { z } from "zod";
 import { getProjectsTemplate } from "../templates";
 
@@ -68,7 +68,7 @@ export const getProjectAction: Action = {
         elizaLogger.info("check:", content.object);
         const { chain, category } = content.object;
 
-        const endpoint = `http://127.0.0.1:7000/projects`;
+        const endpoint = `${DEFAULT_API_BASE_URL}/projects`;
 
         const response = await fetch(endpoint);
         if (!response.ok) {
