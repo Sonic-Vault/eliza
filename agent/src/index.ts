@@ -51,6 +51,7 @@ import {
 import { zgPlugin } from "@elizaos/plugin-0g";
 import { footballPlugin } from "@elizaos/plugin-football";
 import { OpsPlugin } from "@elizaos/plugin-ops";
+import { SolOpsPlugin } from "@elizaos/plugin-sol-ops";
 
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { normalizeCharacter } from "@elizaos/plugin-di";
