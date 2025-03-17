@@ -98,7 +98,7 @@ export const getTransferAction: Action = {
             {
                 user: "{{user1}}",
                 content: {
-                    text: "Transfer 0.0001 S to 0xe6Ee3c5D9467a61A675AEAb5aB1C4E8a413e240C ",
+                    text: "Transfer 0.0001 SONIC to 0xe6Ee3c5D9467a61A675AEAb5aB1C4E8a413e240C ",
                 },
             },
             {

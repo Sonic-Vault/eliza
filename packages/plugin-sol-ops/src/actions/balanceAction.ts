@@ -36,7 +36,7 @@ export const geBalanceAction: Action = {
             throw new Error(`No balance found for ${message.userId}`);
         }
 
-        callback({ text: `Your wallet balance is ${data.balance} S` });
+        callback({ text: `Your wallet balance is ${data.balance} SONIC` });
         return true;
     },
     examples: [
@@ -50,7 +50,7 @@ export const geBalanceAction: Action = {
             {
                 user: "{{agent}}",
                 content: {
-                    text: "You balance is 0.1 S.",
+                    text: "You balance is 0.1 SONIC.",
                     action: "GET_BALANCE",
                 },
             },
@@ -65,7 +65,7 @@ export const geBalanceAction: Action = {
             {
                 user: "{{agent}}",
                 content: {
-                    text: "You balance is 0.1 S.",
+                    text: "You balance is 0.1 SONIC.",
                     action: "GET_BALANCE",
                 },
             },
@@ -80,7 +80,7 @@ export const geBalanceAction: Action = {
             {
                 user: "{{agent}}",
                 content: {
-                    text: "You balance is 0.1 S.",
+                    text: "You balance is 0.1 SONIC.",
                     action: "GET_BALANCE",
                 },
             },
